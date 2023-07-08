@@ -13,16 +13,15 @@ public enum WordType
 
 public class Word
 {
-    public Word(string contents, WordType type, float weight)
+    public Word(string contents, WordType type, Tag tag)
     {
         Contents = contents;
         Type = type;
-        Weight = weight;
+        Tag = tag;  
     }
 
     public string Contents { get; private set; }
     public WordType Type { get; private set; }
 
-    public float Weight { get; private set; }
-
+    public Tag Tag { get; private set; }
 }

@@ -14,5 +14,6 @@ public enum Tag
     Simulator = 512,
     Survival = 1024,
     CardGame = 2048,
-    RPG = 4096
+    RPG = 4096,
+    End = 8192
 }

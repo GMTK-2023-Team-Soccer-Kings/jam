@@ -10,6 +10,7 @@ public class CSV : IDisposable
     {
         Data = new List<List<string>>();
         Data.Add(new List<string>());
+        Data[0].Add("");
 
         int row = 0;
         int column = 0;
@@ -20,10 +21,12 @@ public class CSV : IDisposable
                 column++;
                 Data[row].Add("");
             }
-            else if (c == '\n')
+            else if (c == '\n' || c == '\r')
             {
                 row++;
                 Data.Add(new List<string>());
+                Data[row].Add("");
+                column = 0;
             }
             else
             {
