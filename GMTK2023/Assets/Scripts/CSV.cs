@@ -14,9 +14,16 @@ public class CSV : IDisposable
 
         int row = 0;
         int column = 0;
+
+        bool insideQuoteBlock = false;
         foreach (char c in textAsset.text)
         {
-            if (c == ',')
+            if (c == '"')
+            {
+                insideQuoteBlock = !insideQuoteBlock;
+            }
+
+            if (c == ',' && !insideQuoteBlock)
             {
                 column++;
                 Data[row].Add("");

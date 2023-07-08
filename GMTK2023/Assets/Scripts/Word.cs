@@ -8,7 +8,8 @@ public enum WordType
     Adjective,
     Verb,
     Adverb,
-    Conjunction
+    Conjunction,
+    Punctuation
 }
 
 public class Word
