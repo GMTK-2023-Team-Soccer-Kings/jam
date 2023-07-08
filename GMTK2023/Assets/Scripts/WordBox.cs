@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//DEPRECATED
+
 public class WordBox : MonoBehaviour
 {
     [SerializeField] WordType _wordType;
@@ -13,7 +16,6 @@ public class WordBox : MonoBehaviour
     {
         if (_setupOptionsFnc == null) // mainly just for testing purposes
         {
-            _setupOptionsFnc = FindObjectOfType<PredictiveChoicesController>().ShowOptionsFor;
             GetComponent<Button>().onClick.AddListener(OnSelect);
 
         }
