@@ -113,10 +113,10 @@ TextureImporter:
       name: Brbrr_topBTN_Pressed_0
       rect:
         serializedVersion: 2
-        x: 154
-        y: 945
-        width: 92
-        height: 126
+        x: 244
+        y: 938
+        width: 89
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
