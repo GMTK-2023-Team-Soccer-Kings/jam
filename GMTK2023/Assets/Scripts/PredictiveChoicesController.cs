@@ -47,6 +47,12 @@ public class PredictiveChoicesController : MonoBehaviour
     {
         //TODO Check for completed sentence
 
+        if (_selectedStructure.Count == 0)
+        {
+            ChooseNewSentenceStructure();
+            _outputBox.text += "  ";
+        }
+
         _currentWordType = _selectedStructure.Dequeue();
         GenerateOptionsFor(_currentWordType);
 

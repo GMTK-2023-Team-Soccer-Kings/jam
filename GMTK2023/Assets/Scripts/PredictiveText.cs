@@ -52,7 +52,7 @@ public class PredictiveText : MonoBehaviour
 
                 }
 
-                Word word = new Word(row[0], type, tag);
+                Word word = new Word(row[0].ToLower(), type, tag);
 
                 if (tag.Equals(Tag.None))
                 {
