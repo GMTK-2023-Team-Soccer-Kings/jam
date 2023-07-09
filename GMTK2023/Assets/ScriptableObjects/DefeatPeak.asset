@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DefeatPeak
   m_EditorClassIdentifier: 
   ParodyGameName: Defeat the Peak
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 2f475c4748902f042b6a74acf4dbf1bb, type: 3}

@@ -48,7 +48,7 @@ public class PredictiveText : MonoBehaviour
                 {
                     if (row[i] == "") continue;
 
-                    tag |= _stringToTag[row[i].ToLower()];
+                    tag |= TagData.StringToTag[row[i].ToLower()];
 
                 }
 
@@ -155,24 +155,6 @@ public class PredictiveText : MonoBehaviour
 
         return options;
     }
-
-    Dictionary<string, Tag> _stringToTag = new Dictionary<string, Tag>()
-    {
-        { "none",        Tag.None         },
-        { "adv",   Tag.Adventure    },
-        { "stry",   Tag.StoryRich    },
-        { "hrd",        Tag.Difficult    },
-        { "jump",       Tag.Platformer   },
-        { "hrr",      Tag.Horror       },
-        { "chrm",     Tag.Charming     },
-        { "gore",     Tag.Gore         },
-        { "rl",      Tag.Roguelike    },
-        { "pzl",      Tag.Puzzle       },
-        { "sim",   Tag.Simulator    },
-        { "srv",    Tag.Survival     },
-        { "cg",    Tag.CardGame     },
-        { "rpg",         Tag.RPG          },
-    };
 
     Tag[] _allTags = new Tag[]
     {

@@ -11,6 +11,8 @@ public class EmailGenerator : MonoBehaviour
     [SerializeField] TextMeshProUGUI _emailBody;
     [SerializeField] TextMeshProUGUI _emailSubject;
     [SerializeField] Image _gameImage;
+    [SerializeField] TextMeshProUGUI _emailCompany;
+
 
     PredictiveChoicesController _predictive;
 
@@ -30,10 +32,12 @@ public class EmailGenerator : MonoBehaviour
         FakeGameData gameData = _gameDataManager.GetRandomGame();
 
         _emailBody.text = gameData.Description;
-        _emailSubject.text = gameData.Name;
+        _emailSubject.text = gameData.Subject;
 
         _gameImage.sprite = gameData.Image.Sprite;
         _predictive.LoadNewBrrbl(gameData.Tags);
+
+        _emailCompany.text = gameData.Company;
     }
 
 }

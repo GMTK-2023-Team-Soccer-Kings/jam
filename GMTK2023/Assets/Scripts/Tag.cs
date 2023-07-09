@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 [System.Flags]
 public enum Tag
 {
@@ -16,4 +18,26 @@ public enum Tag
     CardGame = 2048,
     RPG = 4096,
     End = 8192
+}
+
+
+public static class TagData
+{
+    public static readonly Dictionary<string, Tag> StringToTag = new Dictionary<string, Tag>()
+    {
+        { "none",        Tag.None         },
+        { "adv",   Tag.Adventure    },
+        { "stry",   Tag.StoryRich    },
+        { "hrd",        Tag.Difficult    },
+        { "jump",       Tag.Platformer   },
+        { "hrr",      Tag.Horror       },
+        { "chrm",     Tag.Charming     },
+        { "gore",     Tag.Gore         },
+        { "rl",      Tag.Roguelike    },
+        { "pzl",      Tag.Puzzle       },
+        { "sim",   Tag.Simulator    },
+        { "srv",    Tag.Survival     },
+        { "cg",    Tag.CardGame     },
+        { "rpg",         Tag.RPG          },
+    };
 }

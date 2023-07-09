@@ -2012,6 +2012,7 @@ MonoBehaviour:
   _emailBody: {fileID: 7591682984052094907}
   _emailSubject: {fileID: 6552518427636534888}
   _gameImage: {fileID: 8058338026437225360}
+  _emailCompany: {fileID: 4238284780338625009}
 --- !u!114 &4671404523229305158
 MonoBehaviour:
   m_ObjectHideFlags: 0
