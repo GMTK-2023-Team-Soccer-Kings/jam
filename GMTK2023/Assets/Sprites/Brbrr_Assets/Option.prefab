@@ -251,8 +251,8 @@ MonoBehaviour:
     m_NormalTrigger: Idle
     m_HighlightedTrigger: Hover
     m_PressedTrigger: Press
-    m_SelectedTrigger: 
-    m_DisabledTrigger: 
+    m_SelectedTrigger: Select
+    m_DisabledTrigger: Disable
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6838720976472748275}
   m_OnClick:
