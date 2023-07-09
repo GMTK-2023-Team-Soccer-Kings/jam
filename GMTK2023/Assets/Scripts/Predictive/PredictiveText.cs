@@ -174,6 +174,7 @@ public class PredictiveText : MonoBehaviour
         Tag.Simulator,
         Tag.Survival,
         Tag.CardGame,
-        Tag.RPG
+        Tag.RPG,
+        Tag.Emoticon
     };
 }
