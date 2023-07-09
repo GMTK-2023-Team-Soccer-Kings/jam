@@ -2043,6 +2043,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6014c9aa842945242bf64ca3807cf24e, type: 2}
   - {fileID: 11400000, guid: 6f87a74316b995243b4ee6abc7f76f88, type: 2}
   - {fileID: 11400000, guid: 378fd902313d1804490ca13fbe905c09, type: 2}
+  _endScene: Menu
 --- !u!1 &9085183558221768002
 GameObject:
   m_ObjectHideFlags: 0

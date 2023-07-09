@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class FakeGameDataManager : MonoBehaviour
 {
@@ -13,8 +13,17 @@ public class FakeGameDataManager : MonoBehaviour
 
     List<FakeGameData> _gameData = new List<FakeGameData>();
 
+    [SerializeField] string _endScene;
+
     public FakeGameData GetRandomGame()
     {
+        if (_gameData.Count == 0)
+        {
+            SceneManager.LoadScene(_endScene);
+            return null;
+        }
+
+
         int index = Random.Range(0, _gameImages.Count);
         FakeGameData game = _gameData[index];
 

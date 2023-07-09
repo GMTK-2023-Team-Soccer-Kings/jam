@@ -31,6 +31,7 @@ public class EmailGenerator : MonoBehaviour
     public void LoadNewEmail()
     {
         FakeGameData gameData = _gameDataManager.GetRandomGame();
+        if (gameData == null) return;
 
         _emailBody.text = gameData.Description;
         _emailSubject.text = gameData.Subject;
