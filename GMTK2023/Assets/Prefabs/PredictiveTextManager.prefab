@@ -521,7 +521,7 @@ MonoBehaviour:
   - {fileID: 886028765822450649}
   _sentenceStructuresFile: {fileID: 4900000, guid: a275b99f41343f842846dd7901c4e488, type: 3}
   _verbTensesFile: {fileID: 4900000, guid: 9e1478cf279df64438cd8b1a3c8abe82, type: 3}
-  _pluralsFile: {fileID: 0}
+  _pluralsFile: {fileID: 4900000, guid: 0e73cdf5a7056274bafbfe1507944a35, type: 3}
   _tenseButton: {fileID: 5304140831123593144}
   _pluralButton: {fileID: 8030275235886369658}
   _outputBox: {fileID: 4990568774702882195}
@@ -1895,7 +1895,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 530019864257185889, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_text
-      value: Caps
+      value: Tense
       objectReference: {fileID: 0}
     - target: {fileID: 530019864257185889, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_fontSize
@@ -2292,7 +2292,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 530019864257185889, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_text
-      value: Caps
+      value: Plural
       objectReference: {fileID: 0}
     - target: {fileID: 530019864257185889, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_fontSize
