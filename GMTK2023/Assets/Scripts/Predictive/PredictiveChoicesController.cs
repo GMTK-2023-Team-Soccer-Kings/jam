@@ -315,7 +315,28 @@ public class PredictiveChoicesController : MonoBehaviour
 
         _completedBrrbl.Add(chosenWord);
 
-        _outputBox.text += chosenWord.Contents;
+
+        string wordText = chosenWord.Contents;
+        switch (capsOption)
+        {
+            case 0:
+                wordText = wordText.ToLower();
+                break;
+            case 1:
+                string temp = wordText[0].ToString().ToUpper();
+                wordText = wordText.ToLower();
+                wordText = temp + wordText.Remove(0, 1);
+
+                break;
+            case 2:
+                wordText = wordText.ToUpper();
+                break;
+        }
+
+
+        _outputBox.text += wordText;
+
+
 
         if (_keywordsActive) _keywordCount--;
 
