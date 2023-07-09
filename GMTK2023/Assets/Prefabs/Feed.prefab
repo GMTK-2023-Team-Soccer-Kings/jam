@@ -253,7 +253,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
-  m_ReverseArrangement: 0
+  m_ReverseArrangement: 1
 --- !u!114 &8237260174601352432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,8 +1833,8 @@ MonoBehaviour:
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_DecelerationRate: 0.3
+  m_ScrollSensitivity: 50
   m_Viewport: {fileID: 5052997172773014022}
   m_HorizontalScrollbar: {fileID: 1282350589027423321}
   m_VerticalScrollbar: {fileID: 5901611888494675399}
@@ -1997,6 +1997,7 @@ MonoBehaviour:
   _userBrbllPrefab: {fileID: 6470830186645307014, guid: 17b5a0b8c5de8534b80bfff4b49875e0, type: 3}
   _replyBrbllPrefab: {fileID: -3736624093310892323, guid: 36a6d7afe6f7e46488355bd5841c35d4, type: 3}
   _feedContentParent: {fileID: 8969417934147311544}
+  _scrollRect: {fileID: 7967554856543591556}
 --- !u!1 &7438390315246557523
 GameObject:
   m_ObjectHideFlags: 0
