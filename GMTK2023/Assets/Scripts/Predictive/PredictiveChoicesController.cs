@@ -282,16 +282,16 @@ public class PredictiveChoicesController : MonoBehaviour
             switch (capsOption)
             {
                 case 0:
-                    wordText.ToLower();
+                    wordText = wordText.ToLower();
                     break;
                 case 1:
                     string temp = wordText[0].ToString().ToUpper();
-                    wordText.ToLower();
+                    wordText = wordText.ToLower();
                     wordText = temp + wordText.Remove(0, 1);
 
                     break;
                 case 2:
-                    wordText.ToUpper();
+                    wordText = wordText.ToUpper();
                     break;
             }
 
