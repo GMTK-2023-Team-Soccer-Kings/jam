@@ -105,9 +105,22 @@ public class PredictiveText : MonoBehaviour
                 validWords[index] = temp;
             }
         }
+        else if (reqTag.HasFlag(Tag.Emoticon))
+        {
+            List<Word> validWords = _wordsByType[type][Tag.Emoticon];
+            for (int i = 0; i < OPTIONS_COUNT; i++)
+            {
+                int index = Random.Range(0, validWords.Count - i);
+                options[i] = validWords[index];
+
+                Word temp = validWords[validWords.Count - 1 - i];
+                validWords[validWords.Count - 1 - i] = validWords[index];
+                validWords[index] = temp;
+            }
+        }
         else
         {
-            if ((type == WordType.Punctuation && !reqTag.HasFlag(Tag.Emoticon)) || type == WordType.Conjunction || type == WordType.Preposition)
+            if (type == WordType.Punctuation  || type == WordType.Conjunction || type == WordType.Preposition)
             {
                 return new Word[0];
             }
@@ -132,7 +145,7 @@ public class PredictiveText : MonoBehaviour
 
             for (int i = 1; i < OPTIONS_COUNT; i++)
             {
-                Tag randomTag = _allTags[Random.Range(0, _allTags.Length)];
+                Tag randomTag = _allTags[Random.Range(0, _allTags.Length-1)];
                 index = Random.Range(0, _wordsByType[type][randomTag].Count);
 
                 tempOptions[i] = _wordsByType[type][randomTag][index];

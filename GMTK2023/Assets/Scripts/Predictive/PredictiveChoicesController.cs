@@ -229,10 +229,10 @@ public class PredictiveChoicesController : MonoBehaviour
         if (wordType == WordType.Punctuation)
         {
             int randEmoticon = Random.Range(0, 7);
-            //if (randEmoticon == 6)
-            //{
-                _generatedNormalWords = _predictive.GetOptionsFor(wordType, Tag.Emoticon);
-            //}
+            if (randEmoticon == 6)
+            {
+              _generatedNormalWords = _predictive.GetOptionsFor(wordType, Tag.Emoticon);
+            }
         }
     }
 
@@ -266,13 +266,13 @@ public class PredictiveChoicesController : MonoBehaviour
 
     public void TogglePlural()
     {
-        if (currentTense == 1)
+        if (plurals == 1)
         {
-            currentTense = 0;
+            plurals = 0;
         }
         else
         {
-            currentTense++;
+            plurals++;
         }
 
         DisplayOptions();
@@ -387,7 +387,7 @@ public class PredictiveChoicesController : MonoBehaviour
 
         if (word.Type == WordType.Noun)
         {
-            wordText = tenses[word.Contents.ToLower()][plurals];
+            wordText = pluralData[word.Contents.ToLower()][plurals];
         }
 
         switch (capsOption)

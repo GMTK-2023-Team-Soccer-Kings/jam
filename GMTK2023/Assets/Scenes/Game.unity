@@ -151,8 +151,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b5d3e85e77fcda64dbafd0050958db3f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -249,6 +249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6f495a762af394d9e47f228977cacf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: b5d3e85e77fcda64dbafd0050958db3f, type: 3}
+  - {fileID: 8300000, guid: 9573c3ae4463c324f8d0b4b32d97cb93, type: 3}
+  - {fileID: 8300000, guid: f0fe6ddc995284241815afd79c7f12c3, type: 3}
 --- !u!4 &43768462
 Transform:
   m_ObjectHideFlags: 0
@@ -262,7 +266,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &111939298
 GameObject:
@@ -826,6 +830,34 @@ PrefabInstance:
     - target: {fileID: 3028571317863178996, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753665772629687392, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753665772629687392, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753665772629687392, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 43768461}
+    - target: {fileID: 3753665772629687392, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753665772629687392, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleMute
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753665772629687392, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AmbiancePlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753665772629687392, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6227090747078506496, guid: bafb7e7ccbbf15046ab3f14b71da334d, type: 3}
       propertyPath: m_Name

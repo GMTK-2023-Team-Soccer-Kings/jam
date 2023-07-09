@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class AmbiancePlayer : MonoBehaviour
 {
-    AudioClip[] audioClips;
+    [SerializeField] AudioClip[] audioClips;
 
     AudioSource audioSource;
 
     (int, int) intervalRange = (15, 70);
+
+    bool mute = false;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -23,6 +30,8 @@ public class AmbiancePlayer : MonoBehaviour
 
             yield return new WaitForSeconds(time);
 
+            audioSource.panStereo = (float)Random.Range(-100, 100) / (float)100;
+
             int i = Random.Range(0, audioClips.Length);
             audioSource.clip = audioClips[i];
 
@@ -30,9 +39,18 @@ public class AmbiancePlayer : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void ToggleMute()
     {
-        audioSource.panStereo += 0.1f * Time.deltaTime;
+        mute = !mute;
+        if (mute)
+        {
+            audioSource.volume = 0;
+        }
+        else
+        {
+            audioSource.volume = 1;
+
+        }
     }
 
 }
