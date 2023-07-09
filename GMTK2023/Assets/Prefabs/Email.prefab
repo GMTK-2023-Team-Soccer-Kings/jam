@@ -1949,6 +1949,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCSV: {fileID: 4900000, guid: 3ad3f73dfb4502d4688994becd12bea9, type: 3}
   _gameImages:
+  - {fileID: 11400000, guid: d0707ccd5fa39b3499104801c47b523f, type: 2}
+  - {fileID: 11400000, guid: 9d23cd76b5c818b4f9b4f557b7819ad6, type: 2}
+  - {fileID: 11400000, guid: 75f41580c16797e4296ef204de8ba090, type: 2}
   - {fileID: 11400000, guid: 6dfc538497f12ff49814701a01a42770, type: 2}
   - {fileID: 11400000, guid: 33ca08b7fba9ee9439d04e64ad99d3a4, type: 2}
   - {fileID: 11400000, guid: c78d6c7d3b996114db736493a4d1cc75, type: 2}
@@ -1956,6 +1959,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c9c6d17a2d38f5498213ec62e94d489, type: 2}
   - {fileID: 11400000, guid: 7e240da3e2400ad4080195ce4a2625cb, type: 2}
   - {fileID: 11400000, guid: b85f29161d20c304590c540f3ffaa64b, type: 2}
+  - {fileID: 11400000, guid: b25d99ee88d1a3b4a919f39183aef7d8, type: 2}
   - {fileID: 11400000, guid: 601b03ad5d40829449d6ba5c6c294589, type: 2}
   - {fileID: 11400000, guid: 6014c9aa842945242bf64ca3807cf24e, type: 2}
   - {fileID: 11400000, guid: 6f87a74316b995243b4ee6abc7f76f88, type: 2}

@@ -34,14 +34,21 @@ public class PredictiveChoicesController : MonoBehaviour
 
     [SerializeField] ToggleButton _keywordToggle;
 
+    [SerializeField] GameObject _postButton;
+
     private void Awake()
     {
         _predictive = GetComponent<PredictiveText>();
         ReadSentenceStructuresFile();
     }
 
-    private void Start()
+    public void LoadNewBrrbl(Tag gameTags)
     {
+        _longSentence = false;
+        _shortSentence = false;
+
+        _currentValidTags = gameTags;
+
         ChooseNewSentenceStructure();
         GoToNextWord();
     }
@@ -54,6 +61,12 @@ public class PredictiveChoicesController : MonoBehaviour
             endOfMessage = !ChooseNewSentenceStructure();
             if (!endOfMessage) _outputBox.text += " ";
         }
+
+        if (endOfMessage)
+        {
+            _postButton.SetActive(true);
+        }
+
 
         if (!endOfMessage)
         {
