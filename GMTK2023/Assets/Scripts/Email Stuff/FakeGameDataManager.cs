@@ -19,6 +19,12 @@ public class FakeGameDataManager : MonoBehaviour
     {
         if (_gameData.Count == 0)
         {
+            foreach (UserBrbll brbll in FindObjectsOfType<UserBrbll>())
+            {
+                brbll.transform.SetParent(null);
+                DontDestroyOnLoad(brbll.gameObject);
+            }
+
             SceneManager.LoadScene(_endScene);
             return null;
         }

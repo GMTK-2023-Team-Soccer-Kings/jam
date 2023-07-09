@@ -119,6 +119,8 @@ public class PredictiveChoicesController : MonoBehaviour
 
     public void PressPost()
     {
+        _postButton.SetActive(false);
+
         int score = 0;
         foreach (Word word in _completedBrrbl)
         {

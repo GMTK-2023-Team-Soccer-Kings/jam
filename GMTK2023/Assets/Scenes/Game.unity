@@ -4312,7 +4312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548342776901820486, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
       propertyPath: m_Transition
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4548342776901820486, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4474,6 +4474,8 @@ PrefabInstance:
     - {fileID: 3739593035181972900, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
     - {fileID: 885689541224136821, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
     - {fileID: 4708819030282435559, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
+    - {fileID: 6350266634218311297, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
+    - {fileID: 7941533732715043266, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
