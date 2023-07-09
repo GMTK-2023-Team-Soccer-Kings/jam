@@ -3234,7 +3234,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lucia Hughes (LuxiExtra) \r\nProgrammer"
+  m_text: 'Lucia Hughes
+
+    Programmer'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab6927d36588630498ba466645b67a77, type: 2}
   m_sharedMaterial: {fileID: -7751073194877867327, guid: ab6927d36588630498ba466645b67a77, type: 2}
@@ -3562,7 +3564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Harper
+  m_text: 'Harper Bennett
 
     Designer'
   m_isRightToLeft: 0
@@ -4087,7 +4089,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bob
+  m_text: 'Bob Niewodowski
 
     Designer'
   m_isRightToLeft: 0
