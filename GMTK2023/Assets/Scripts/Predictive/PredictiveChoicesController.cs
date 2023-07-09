@@ -71,7 +71,7 @@ public class PredictiveChoicesController : MonoBehaviour
         _brbllCreator.AddUserBrbll(_outputBox.text, score, _gameData);
 
         _outputBox.text = "";
-
+        _gameData = null;
     }
 
     public void LoadNewBrrbl(FakeGameData gameData)
@@ -265,6 +265,8 @@ public class PredictiveChoicesController : MonoBehaviour
 
     public void ChooseWordOption(int optionIndex) //activated by the buttons
     {
+        if (_gameData == null) return;
+
         Word chosenWord = _keywordsActive ? _generatedKeywords[optionIndex] : _generatedNormalWords[optionIndex];
 
         _completedBrrbl.Add(chosenWord);
