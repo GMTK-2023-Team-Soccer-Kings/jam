@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class BrbllCreator : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class BrbllCreator : MonoBehaviour
     [SerializeField] Transform _feedContentParent;
 
     NotificationManager _notifManager;
+
+    [SerializeField] ScrollRect _scrollRect;
 
     (int, int)[] _likeRanges = new (int, int)[4]
     {
@@ -34,11 +38,11 @@ public class BrbllCreator : MonoBehaviour
         int likes = Random.Range(_likeRanges[score].Item1, _likeRanges[score].Item2);
         string[] replies = _repliesData.GetRepliesFor(score, gameData.Tags);
 
-        UserBrbll userBrbll = Instantiate(_userBrbllPrefab, _feedContentParent);
-        userBrbll.Setup(content, likes, gameData.Image.Sprite);
-
         AddReplyBrbll(replies[0]);
         AddReplyBrbll(replies[1]);
+
+        UserBrbll userBrbll = Instantiate(_userBrbllPrefab, _feedContentParent);
+        userBrbll.Setup(content, likes, gameData.Image.Sprite);
 
         StartCoroutine(NotifCoroutine());
     }
