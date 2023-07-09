@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PredictiveChoicesController : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class PredictiveChoicesController : MonoBehaviour
 
     List<Word> _completedBrrbl = new List<Word>();
 
+    [SerializeField] ToggleButton _keywordToggle;
+
     private void Awake()
     {
         _predictive = GetComponent<PredictiveText>();
@@ -45,8 +48,6 @@ public class PredictiveChoicesController : MonoBehaviour
 
     private void GoToNextWord()
     {
-        //TODO Check for completed sentence
-
         bool endOfMessage = false;
         if (_selectedStructure.Count == 0)
         {
@@ -61,11 +62,37 @@ public class PredictiveChoicesController : MonoBehaviour
             if (_currentWordType != WordType.Punctuation)
             {
                 _outputBox.text += " ";
-            }    
+            }
+
+            if (_currentWordType == WordType.Punctuation || _currentWordType == WordType.Conjunction)
+            {
+                ForceToggleToGeneral(true);
+            }
+            else
+            {
+                ForceToggleToGeneral(false);
+            }
 
             GenerateOptionsFor(_currentWordType);
 
             DisplayOptions();
+        }
+    }
+
+    private void ForceToggleToGeneral(bool force)
+    {
+        if (force)
+        {
+            if (_keywordsActive)
+            {
+                _keywordToggle.Press();
+                _keywordsActive = false;
+            }
+            _keywordToggle.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            _keywordToggle.GetComponent<Button>().interactable = true;
         }
     }
 

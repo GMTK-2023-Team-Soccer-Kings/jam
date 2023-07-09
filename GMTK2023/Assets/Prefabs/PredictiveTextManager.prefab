@@ -194,6 +194,7 @@ MonoBehaviour:
   - {fileID: 886028765822450649}
   _sentenceStructuresFile: {fileID: 4900000, guid: a275b99f41343f842846dd7901c4e488, type: 3}
   _outputBox: {fileID: 4990568774702882195}
+  _keywordToggle: {fileID: 7322958348778604379}
 --- !u!114 &3976133115187919840
 MonoBehaviour:
   m_ObjectHideFlags: 0
