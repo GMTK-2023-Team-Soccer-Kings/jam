@@ -1904,7 +1904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7184428519008651639, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7184428519008651639, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1924,7 +1924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7184428519008651639, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChooseWordOption
+      value: ToggleCaps
       objectReference: {fileID: 0}
     - target: {fileID: 7184428519008651639, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName

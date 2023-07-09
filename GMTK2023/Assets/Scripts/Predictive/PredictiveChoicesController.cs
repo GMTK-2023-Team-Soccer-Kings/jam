@@ -47,6 +47,8 @@ public class PredictiveChoicesController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI _keywordCountTextBox;
 
+    int capsOption = 0;
+
     private void Awake()
     {
         _predictive = GetComponent<PredictiveText>();
@@ -171,6 +173,20 @@ public class PredictiveChoicesController : MonoBehaviour
         }
     }
 
+    public void ToggleCaps()
+    {
+        if (capsOption == 2)
+        {
+            capsOption = 0;
+        }
+        else
+        {
+            capsOption++;
+        }
+
+        DisplayOptions();
+    }
+
     private bool ChooseNewSentenceStructure()
     {
         if (_longSentence && _shortSentence)
@@ -261,7 +277,26 @@ public class PredictiveChoicesController : MonoBehaviour
         int i = 0;
         foreach (Word word in wordOptions)
         {
-            _choices[i].text = word.Contents;
+            string wordText = word.Contents;
+
+            switch (capsOption)
+            {
+                case 0:
+                    wordText.ToLower();
+                    break;
+                case 1:
+                    string temp = wordText[0].ToString().ToUpper();
+                    wordText.ToLower();
+                    wordText = temp + wordText.Remove(0, 1);
+
+                    break;
+                case 2:
+                    wordText.ToUpper();
+                    break;
+            }
+
+
+            _choices[i].text = wordText;
             i++;
         }
     }
