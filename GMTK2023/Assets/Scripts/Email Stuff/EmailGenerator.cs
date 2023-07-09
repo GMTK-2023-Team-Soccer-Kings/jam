@@ -35,7 +35,7 @@ public class EmailGenerator : MonoBehaviour
         _emailSubject.text = gameData.Subject;
 
         _gameImage.sprite = gameData.Image.Sprite;
-        _predictive.LoadNewBrrbl(gameData.Tags);
+        _predictive.LoadNewBrrbl(gameData);
 
         _emailCompany.text = gameData.Company;
     }

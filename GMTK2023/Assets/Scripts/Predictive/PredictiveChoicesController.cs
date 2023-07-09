@@ -36,18 +36,44 @@ public class PredictiveChoicesController : MonoBehaviour
 
     [SerializeField] GameObject _postButton;
 
+    FakeGameData _gameData;
+
+    BrbllCreator _brbllCreator;
+
     private void Awake()
     {
         _predictive = GetComponent<PredictiveText>();
+        _brbllCreator = FindObjectOfType<BrbllCreator>();
+
         ReadSentenceStructuresFile();
     }
 
-    public void LoadNewBrrbl(Tag gameTags)
+    public void PressPost()
+    {
+        int score = 0;
+        foreach (Word word in _completedBrrbl)
+        {
+            if (word.Tag.Equals(Tag.None)) continue;
+
+            if (_gameData.Tags.HasFlag(word.Tag))
+            {
+                score++;
+            }
+        }
+
+        _brbllCreator.AddUserBrbll(_outputBox.text, score, _gameData);
+
+        _outputBox.text = "";
+
+    }
+
+    public void LoadNewBrrbl(FakeGameData gameData)
     {
         _longSentence = false;
         _shortSentence = false;
 
-        _currentValidTags = gameTags;
+        _gameData = gameData;
+        _currentValidTags = _gameData.Tags;
 
         ChooseNewSentenceStructure();
         GoToNextWord();
