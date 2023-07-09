@@ -47,16 +47,26 @@ public class PredictiveChoicesController : MonoBehaviour
     {
         //TODO Check for completed sentence
 
+        bool endOfMessage = false;
         if (_selectedStructure.Count == 0)
         {
-            ChooseNewSentenceStructure();
-            _outputBox.text += "  ";
+            endOfMessage = !ChooseNewSentenceStructure();
+            if (!endOfMessage) _outputBox.text += " ";
         }
 
-        _currentWordType = _selectedStructure.Dequeue();
-        GenerateOptionsFor(_currentWordType);
+        if (!endOfMessage)
+        {
+            _currentWordType = _selectedStructure.Dequeue();
 
-        DisplayOptions();
+            if (_currentWordType != WordType.Punctuation)
+            {
+                _outputBox.text += " ";
+            }    
+
+            GenerateOptionsFor(_currentWordType);
+
+            DisplayOptions();
+        }
     }
 
     public void GenerateOptionsFor(WordType wordType)
@@ -65,12 +75,11 @@ public class PredictiveChoicesController : MonoBehaviour
         _generatedKeywords = _predictive.GetOptionsFor(wordType, _currentValidTags);
     }
 
-    private void ChooseNewSentenceStructure()
+    private bool ChooseNewSentenceStructure()
     {
         if (_longSentence && _shortSentence)
         {
-            Debug.LogError("Brrbl is ready to be sent, but code attempted new sentence structure.");
-            return;
+            return false;
         }
 
         bool newSentenceIsLong = false;
@@ -87,13 +96,17 @@ public class PredictiveChoicesController : MonoBehaviour
         if (newSentenceIsLong)
         {
             int index = Random.Range(0, _longSentenceStructures.Count);
-            _selectedStructure = _longSentenceStructures[index];
+            _selectedStructure = new Queue<WordType>(_longSentenceStructures[index]);
+            _longSentence = true;
         }
         else
         {
             int index = Random.Range(0, _shortSentenceStructures.Count);
-            _selectedStructure = _shortSentenceStructures[index];
+            _selectedStructure = new Queue<WordType>(_shortSentenceStructures[index]);
+            _shortSentence = true;
         }
+
+        return true;
     }
 
     private void ReadSentenceStructuresFile()
@@ -169,7 +182,7 @@ public class PredictiveChoicesController : MonoBehaviour
 
         _completedBrrbl.Add(chosenWord);
 
-        _outputBox.text += chosenWord.Contents + " ";
+        _outputBox.text += chosenWord.Contents;
         GoToNextWord();
     }
 
