@@ -40,6 +40,13 @@ public class PredictiveChoicesController : MonoBehaviour
 
     BrbllCreator _brbllCreator;
 
+    [SerializeField] TextMeshProUGUI _wordTypeTextBox;
+
+    const int DEFAULT_KWORD_COUNT = 3;
+    int _keywordCount = DEFAULT_KWORD_COUNT;
+
+    [SerializeField] TextMeshProUGUI _keywordCountTextBox;
+
     private void Awake()
     {
         _predictive = GetComponent<PredictiveText>();
@@ -75,12 +82,17 @@ public class PredictiveChoicesController : MonoBehaviour
         _gameData = gameData;
         _currentValidTags = _gameData.Tags;
 
+        _keywordCount = DEFAULT_KWORD_COUNT;
+        ForceToggleToGeneral(false);
+
         ChooseNewSentenceStructure();
         GoToNextWord();
     }
 
     private void GoToNextWord()
     {
+        _keywordCountTextBox.text = _keywordCount.ToString();
+
         bool endOfMessage = false;
         if (_selectedStructure.Count == 0)
         {
@@ -104,6 +116,9 @@ public class PredictiveChoicesController : MonoBehaviour
                 _currentWordType = _selectedStructure.Dequeue();
             }
 
+            _wordTypeTextBox.text = "(" + _currentWordType.ToString() + ")";
+
+
             if (_currentWordType != WordType.Punctuation)
             {
                 _outputBox.text += " ";
@@ -113,7 +128,7 @@ public class PredictiveChoicesController : MonoBehaviour
             {
                 ForceToggleToGeneral(true);
             }
-            else
+            else if (_keywordCount > 0)
             {
                 ForceToggleToGeneral(false);
             }
@@ -255,6 +270,14 @@ public class PredictiveChoicesController : MonoBehaviour
         _completedBrrbl.Add(chosenWord);
 
         _outputBox.text += chosenWord.Contents;
+
+        if (_keywordsActive) _keywordCount--;
+
+        if (_keywordCount <= 0)
+        {
+            ForceToggleToGeneral(true);
+        }
+
         GoToNextWord();
     }
 
