@@ -30,7 +30,7 @@ public class FakeGameDataManager : MonoBehaviour
         }
 
 
-        int index = Random.Range(0, _gameImages.Count);
+        int index = Random.Range(0, _gameData.Count);
         FakeGameData game = _gameData[index];
 
         _gameData.Remove(game);
