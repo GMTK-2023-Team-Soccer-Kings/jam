@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.Collections.LowLevel.Unsafe;
 
 public class PredictiveChoicesController : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class PredictiveChoicesController : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] _choices;
 
     [SerializeField] TextAsset _sentenceStructuresFile;
+    [SerializeField] TextAsset _verbTensesFile;
+    [SerializeField] TextAsset _pluralsFile;
+
+
 
     List<Queue<WordType>> _shortSentenceStructures = new List<Queue<WordType>>();
     List<Queue<WordType>> _longSentenceStructures = new List<Queue<WordType>>();
@@ -48,6 +53,10 @@ public class PredictiveChoicesController : MonoBehaviour
     [SerializeField] TextMeshProUGUI _keywordCountTextBox;
 
     int capsOption = 0;
+    int currentTense = 0;
+
+    Dictionary<string, List<string>> tenses = new Dictionary<string, List<string>>();
+
 
     private void Awake()
     {
@@ -55,6 +64,26 @@ public class PredictiveChoicesController : MonoBehaviour
         _brbllCreator = FindObjectOfType<BrbllCreator>();
 
         ReadSentenceStructuresFile();
+        ReadTensesFile();
+    }
+
+    private void ReadTensesFile()
+    {
+        using (CSV csv = new CSV(_verbTensesFile))
+        {
+            foreach (List<string> row in csv.Data)
+            {
+                if (row[0] == "") continue;
+
+                List<string> tensesStuff = new List<string>();
+                foreach (string str in row)
+                {
+                    tensesStuff.Add(str.ToLower());
+                }
+
+                tenses.Add(tensesStuff[0], tensesStuff);
+            }
+        }
     }
 
     public void PressPost()
@@ -187,6 +216,20 @@ public class PredictiveChoicesController : MonoBehaviour
         DisplayOptions();
     }
 
+    public void ToggleTense()
+    {
+        if (currentTense == 2)
+        {
+            currentTense= 0;
+        }
+        else
+        {
+            currentTense++;
+        }
+
+        DisplayOptions();
+    }
+
     private bool ChooseNewSentenceStructure()
     {
         if (_longSentence && _shortSentence)
@@ -277,28 +320,45 @@ public class PredictiveChoicesController : MonoBehaviour
         int i = 0;
         foreach (Word word in wordOptions)
         {
-            string wordText = word.Contents;
-
-            switch (capsOption)
-            {
-                case 0:
-                    wordText = wordText.ToLower();
-                    break;
-                case 1:
-                    string temp = wordText[0].ToString().ToUpper();
-                    wordText = wordText.ToLower();
-                    wordText = temp + wordText.Remove(0, 1);
-
-                    break;
-                case 2:
-                    wordText = wordText.ToUpper();
-                    break;
-            }
 
 
-            _choices[i].text = wordText;
+
+            _choices[i].text = GetCorrectedWord(word);
             i++;
         }
+    }
+
+    private string GetCorrectedWord(Word word)
+    {
+        string wordText = word.Contents;
+
+        if (word.Type == WordType.Verb)
+        {
+            wordText = tenses[word.Contents.ToLower()][currentTense];
+        }
+
+        //if (word.Type == WordType.Verb)
+        //{
+        //    wordText = tenses[word.Contents.ToLower()][currentTense];
+        //}
+
+        switch (capsOption)
+        {
+            case 0:
+                wordText = wordText.ToLower();
+                break;
+            case 1:
+                string temp = wordText[0].ToString().ToUpper();
+                wordText = wordText.ToLower();
+                wordText = temp + wordText.Remove(0, 1);
+
+                break;
+            case 2:
+                wordText = wordText.ToUpper();
+                break;
+        }
+
+        return wordText;
     }
 
     public void ToggleKeywords()
@@ -316,25 +376,7 @@ public class PredictiveChoicesController : MonoBehaviour
         _completedBrrbl.Add(chosenWord);
 
 
-        string wordText = chosenWord.Contents;
-        switch (capsOption)
-        {
-            case 0:
-                wordText = wordText.ToLower();
-                break;
-            case 1:
-                string temp = wordText[0].ToString().ToUpper();
-                wordText = wordText.ToLower();
-                wordText = temp + wordText.Remove(0, 1);
-
-                break;
-            case 2:
-                wordText = wordText.ToUpper();
-                break;
-        }
-
-
-        _outputBox.text += wordText;
+        _outputBox.text += GetCorrectedWord(chosenWord);
 
 
 
