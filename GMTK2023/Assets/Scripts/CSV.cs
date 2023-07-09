@@ -21,9 +21,9 @@ public class CSV : IDisposable
             if (c == '"')
             {
                 insideQuoteBlock = !insideQuoteBlock;
-            }
 
-            if (c == ',' && !insideQuoteBlock)
+            }
+            else if (c == ',' && !insideQuoteBlock)
             {
                 column++;
                 Data[row].Add("");
