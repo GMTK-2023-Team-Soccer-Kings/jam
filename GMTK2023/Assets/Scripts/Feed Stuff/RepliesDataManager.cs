@@ -7,9 +7,6 @@ public class RepliesDataManager : MonoBehaviour
 {
     [SerializeField] TextAsset _replies;
 
-    [SerializeField] Tag testTag;
-    [SerializeField] int testScore;
-
     struct Reply
     {
         public string Content;
@@ -93,10 +90,6 @@ public class RepliesDataManager : MonoBehaviour
     private void Awake()
     {
         LoadReplyData();
-
-        string[] test = GetRepliesFor(testScore, testTag);
-        Debug.Log(test[0]);
-        Debug.Log(test[1]);
     }
 
     private void LoadReplyData()

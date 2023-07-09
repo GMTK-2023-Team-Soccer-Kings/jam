@@ -540,6 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2084640826157069829}
   - component: {fileID: 3091454686065544954}
+  - component: {fileID: 6470830186645307014}
   m_Layer: 5
   m_Name: Brbrll
   m_TagString: Untagged
@@ -582,6 +583,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5065200517329788419}
   m_CullTransparentMesh: 1
+--- !u!114 &6470830186645307014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5065200517329788419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6449786262ae60a4bb7d030d45312743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _content: {fileID: 6314633284974203979}
+  _likes: {fileID: 1142280672491189078}
+  _image: {fileID: 7305062979117405026}
 --- !u!1 &5090879435663824314
 GameObject:
   m_ObjectHideFlags: 0

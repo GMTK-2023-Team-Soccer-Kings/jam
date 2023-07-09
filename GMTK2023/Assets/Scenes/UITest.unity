@@ -1462,11 +1462,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &947585978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7433056589073855605, guid: 065aa93947c215542a6bfaa7c7a0b171, type: 3}
-  m_PrefabInstance: {fileID: 3213812078905401833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &947585979 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6135612162901788577, guid: 065aa93947c215542a6bfaa7c7a0b171, type: 3}
@@ -2402,7 +2397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bmail: {fileID: 863475848}
-  Brblls: {fileID: 947585978}
+  Brblls: {fileID: 3213812078905401834}
 --- !u!1 &1458057480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3214,6 +3209,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 065aa93947c215542a6bfaa7c7a0b171, type: 3}
+--- !u!1 &3213812078905401834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5964057827244722921, guid: 065aa93947c215542a6bfaa7c7a0b171, type: 3}
+  m_PrefabInstance: {fileID: 3213812078905401833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4370242918187800751
 PrefabInstance:
   m_ObjectHideFlags: 0
