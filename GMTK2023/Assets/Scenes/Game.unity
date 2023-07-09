@@ -3692,6 +3692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PredictiveTextManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3523376216325837163, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4548342776901820486, guid: 773815868c4cb3642aac96d83422a4bf, type: 3}
       propertyPath: m_Transition
       value: 3

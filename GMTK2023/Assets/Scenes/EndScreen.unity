@@ -772,16 +772,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: Option
       objectReference: {fileID: 0}
+    - target: {fileID: 7184428519008651639, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 590898556}
+    - target: {fileID: 7184428519008651639, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184428519008651639, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneChange, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4960991526085184764, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 590898556}
   m_SourcePrefab: {fileID: 100100000, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
 --- !u!224 &590898554 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2658137803847456862, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
   m_PrefabInstance: {fileID: 590898553}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &590898555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4960991526085184764, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
+  m_PrefabInstance: {fileID: 590898553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &590898556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590898555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bac9e6ada392341b72714726bd89f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Menu
 --- !u!1 &810750557
 GameObject:
   m_ObjectHideFlags: 0
