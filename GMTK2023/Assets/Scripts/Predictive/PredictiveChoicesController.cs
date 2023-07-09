@@ -160,6 +160,15 @@ public class PredictiveChoicesController : MonoBehaviour
     {
         _generatedNormalWords = _predictive.GetOptionsFor(wordType, Tag.None);
         _generatedKeywords = _predictive.GetOptionsFor(wordType, _currentValidTags);
+
+        if (wordType == WordType.Punctuation)
+        {
+            int randEmoticon = Random.Range(0, 7);
+            if (randEmoticon == 6)
+            {
+                _generatedNormalWords = _predictive.GetOptionsFor(wordType, Tag.Emoticon);
+            }
+        }
     }
 
     private bool ChooseNewSentenceStructure()

@@ -3413,6 +3413,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4671404523229305158, guid: 7cd51242aeabce44da4363fb32246a82, type: 3}
+      propertyPath: _endScene
+      value: EndScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 8596824235684884185, guid: 7cd51242aeabce44da4363fb32246a82, type: 3}
       propertyPath: m_Name
       value: Email

@@ -107,7 +107,7 @@ public class PredictiveText : MonoBehaviour
         }
         else
         {
-            if (type == WordType.Punctuation || type == WordType.Conjunction || type == WordType.Preposition)
+            if ((type == WordType.Punctuation && !reqTag.HasFlag(Tag.Emoticon)) || type == WordType.Conjunction || type == WordType.Preposition)
             {
                 return new Word[0];
             }
