@@ -98,12 +98,18 @@ public class PredictiveChoicesController : MonoBehaviour
         {
             _currentWordType = _selectedStructure.Dequeue();
 
+            while (_currentWordType == WordType.Comma)
+            {
+                _outputBox.text += ",";
+                _currentWordType = _selectedStructure.Dequeue();
+            }
+
             if (_currentWordType != WordType.Punctuation)
             {
                 _outputBox.text += " ";
             }
 
-            if (_currentWordType == WordType.Punctuation || _currentWordType == WordType.Conjunction)
+            if (_currentWordType == WordType.Punctuation || _currentWordType == WordType.Conjunction || _currentWordType == WordType.Preposition)
             {
                 ForceToggleToGeneral(true);
             }
@@ -261,5 +267,7 @@ public class PredictiveChoicesController : MonoBehaviour
         { "conjunction",   WordType.Conjunction   },
         { "verb",  WordType.Verb          },
         { "punctuation",      WordType.Punctuation   },
+        { "preposition", WordType.Preposition },
+        { "comma", WordType.Comma }
     };
 }

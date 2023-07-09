@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Marketing Team Marketing
+  m_text: Market Smarket
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7c4a7a93a740504787c2576df80f99f, type: 2}
   m_sharedMaterial: {fileID: 5907493638531172048, guid: a7c4a7a93a740504787c2576df80f99f, type: 2}
@@ -1011,10 +1011,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.82
+  m_fontSize: 31.25
   m_fontSizeBase: 24.82
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2013,6 +2013,7 @@ MonoBehaviour:
   _emailSubject: {fileID: 6552518427636534888}
   _gameImage: {fileID: 8058338026437225360}
   _emailCompany: {fileID: 4238284780338625009}
+  _imageToggle: {fileID: 5230773401051576690}
 --- !u!114 &4671404523229305158
 MonoBehaviour:
   m_ObjectHideFlags: 0

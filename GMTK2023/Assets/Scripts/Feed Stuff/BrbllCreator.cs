@@ -11,6 +11,8 @@ public class BrbllCreator : MonoBehaviour
 
     [SerializeField] Transform _feedContentParent;
 
+    NotificationManager _notifManager;
+
     (int, int)[] _likeRanges = new (int, int)[4]
     {
         (5, 75),
@@ -24,6 +26,7 @@ public class BrbllCreator : MonoBehaviour
     private void Awake()
     {
         _repliesData = GetComponent<RepliesDataManager>();
+        _notifManager = FindObjectOfType<NotificationManager>();
     }
 
     public void AddUserBrbll(string content, int score, FakeGameData gameData)
@@ -36,6 +39,8 @@ public class BrbllCreator : MonoBehaviour
 
         AddReplyBrbll(replies[0]);
         AddReplyBrbll(replies[1]);
+
+        StartCoroutine(NotifCoroutine());
     }
 
     public void AddReplyBrbll(string content)
@@ -45,5 +50,11 @@ public class BrbllCreator : MonoBehaviour
         ReplyBrbll replyBrbll = Instantiate(_replyBrbllPrefab, _feedContentParent);
         replyBrbll.Setup(content, likes);
 
+    }
+
+    IEnumerator NotifCoroutine()
+    {
+        yield return new WaitForSeconds(0.15f);
+        _notifManager.AddNotif(true);
     }
 }

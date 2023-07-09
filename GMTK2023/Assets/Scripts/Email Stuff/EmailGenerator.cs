@@ -13,6 +13,7 @@ public class EmailGenerator : MonoBehaviour
     [SerializeField] Image _gameImage;
     [SerializeField] TextMeshProUGUI _emailCompany;
 
+    [SerializeField] ToggleButton _imageToggle;
 
     PredictiveChoicesController _predictive;
 
@@ -27,7 +28,7 @@ public class EmailGenerator : MonoBehaviour
         LoadNewEmail();
     }
 
-    private void LoadNewEmail()
+    public void LoadNewEmail()
     {
         FakeGameData gameData = _gameDataManager.GetRandomGame();
 
@@ -38,6 +39,11 @@ public class EmailGenerator : MonoBehaviour
         _predictive.LoadNewBrrbl(gameData);
 
         _emailCompany.text = gameData.Company;
+
+        if (_imageToggle.state)
+        {
+            _imageToggle.Press();
+        }
     }
 
 }

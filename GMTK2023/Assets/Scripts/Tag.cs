@@ -17,7 +17,8 @@ public enum Tag
     Survival = 1024,
     CardGame = 2048,
     RPG = 4096,
-    End = 8192
+    Emoticon = 8192,
+    End = 16384
 }
 
 
@@ -39,5 +40,6 @@ public static class TagData
         { "srv",    Tag.Survival     },
         { "cg",    Tag.CardGame     },
         { "rpg",         Tag.RPG          },
+        { ":)",         Tag.Emoticon          },
     };
 }

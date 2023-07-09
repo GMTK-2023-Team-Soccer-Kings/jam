@@ -12,6 +12,8 @@ public class PredictiveText : MonoBehaviour
     [SerializeField] TextAsset _adjectivesFile;
     [SerializeField] TextAsset _conjunctionsFile;
     [SerializeField] TextAsset _punctuationsFile;
+    [SerializeField] TextAsset _adverbsFile;
+    [SerializeField] TextAsset _prepositionsFile;
 
 
     Dictionary<WordType, Dictionary<Tag, List<Word>>> _wordsByType = new Dictionary<WordType, Dictionary<Tag, List<Word>>>();
@@ -25,6 +27,8 @@ public class PredictiveText : MonoBehaviour
         AddWordsFromFile(_adjectivesFile, WordType.Adjective);
         AddWordsFromFile(_conjunctionsFile, WordType.Conjunction);
         AddWordsFromFile(_punctuationsFile, WordType.Punctuation);
+        AddWordsFromFile(_prepositionsFile, WordType.Preposition);
+        AddWordsFromFile(_adverbsFile, WordType.Adverb);
     }
 
     private void AddWordsFromFile(TextAsset _text, WordType type)
@@ -103,7 +107,7 @@ public class PredictiveText : MonoBehaviour
         }
         else
         {
-            if (type == WordType.Punctuation || type == WordType.Conjunction)
+            if (type == WordType.Punctuation || type == WordType.Conjunction || type == WordType.Preposition)
             {
                 return new Word[0];
             }
