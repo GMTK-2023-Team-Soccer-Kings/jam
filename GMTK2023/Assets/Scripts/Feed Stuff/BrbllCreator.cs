@@ -42,7 +42,6 @@ public class BrbllCreator : MonoBehaviour
 
         UserBrbll userBrbll = Instantiate(_userBrbllPrefab, _feedContentParent);
         userBrbll.Setup(content, likes, gameData.Image.Sprite);
-        DontDestroyOnLoad(userBrbll);
 
 
         StartCoroutine(NotifCoroutine());

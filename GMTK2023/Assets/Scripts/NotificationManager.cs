@@ -48,6 +48,11 @@ public class NotificationManager : MonoBehaviour
 
         if ((_bmailActive && !isBrbrr) || (!_bmailActive && isBrbrr))
         {
+            if (isBrbrr)
+            {
+                StartCoroutine(NewBmail());
+            }
+
             return;
         }
 
