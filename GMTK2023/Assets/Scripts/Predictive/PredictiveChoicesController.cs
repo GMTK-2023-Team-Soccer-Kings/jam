@@ -19,6 +19,8 @@ public class PredictiveChoicesController : MonoBehaviour
     [SerializeField] TextAsset _verbTensesFile;
     [SerializeField] TextAsset _pluralsFile;
 
+    [SerializeField] GameObject _tenseButton;
+    [SerializeField] GameObject _pluralButton;
 
 
     List<Queue<WordType>> _shortSentenceStructures = new List<Queue<WordType>>();
@@ -54,8 +56,10 @@ public class PredictiveChoicesController : MonoBehaviour
 
     int capsOption = 0;
     int currentTense = 0;
+    int plurals = 0;
 
     Dictionary<string, List<string>> tenses = new Dictionary<string, List<string>>();
+    Dictionary<string, List<string>> pluralData = new Dictionary<string, List<string>>();
 
 
     private void Awake()
@@ -65,6 +69,7 @@ public class PredictiveChoicesController : MonoBehaviour
 
         ReadSentenceStructuresFile();
         ReadTensesFile();
+        ReadPluralsFile();
     }
 
     private void ReadTensesFile()
@@ -81,7 +86,33 @@ public class PredictiveChoicesController : MonoBehaviour
                     tensesStuff.Add(str.ToLower());
                 }
 
-                tenses.Add(tensesStuff[0], tensesStuff);
+                if (!tenses.TryGetValue(tensesStuff[0], out List<string> _))
+                {
+                    tenses.Add(tensesStuff[0], tensesStuff);
+                }
+            }
+        }
+    }
+
+    private void ReadPluralsFile()
+    {
+        using (CSV csv = new CSV(_pluralsFile))
+        {
+            foreach (List<string> row in csv.Data)
+            {
+                if (row[0] == "") continue;
+
+                List<string> pluralStuff = new List<string>();
+                foreach (string str in row)
+                {
+                    pluralStuff.Add(str.ToLower());
+                }
+
+                if (!pluralData.TryGetValue(pluralStuff[0], out List<string> _))
+                {
+                    pluralData.Add(pluralStuff[0], pluralStuff);
+                }
+
             }
         }
     }
@@ -155,6 +186,9 @@ public class PredictiveChoicesController : MonoBehaviour
                 _outputBox.text += " ";
             }
 
+            _tenseButton.SetActive(_currentWordType == WordType.Verb);
+            _pluralButton.SetActive(_currentWordType == WordType.Noun);
+
             if (_currentWordType == WordType.Punctuation || _currentWordType == WordType.Conjunction || _currentWordType == WordType.Preposition)
             {
                 ForceToggleToGeneral(true);
@@ -195,10 +229,10 @@ public class PredictiveChoicesController : MonoBehaviour
         if (wordType == WordType.Punctuation)
         {
             int randEmoticon = Random.Range(0, 7);
-            if (randEmoticon == 6)
-            {
+            //if (randEmoticon == 6)
+            //{
                 _generatedNormalWords = _predictive.GetOptionsFor(wordType, Tag.Emoticon);
-            }
+            //}
         }
     }
 
@@ -221,6 +255,20 @@ public class PredictiveChoicesController : MonoBehaviour
         if (currentTense == 2)
         {
             currentTense= 0;
+        }
+        else
+        {
+            currentTense++;
+        }
+
+        DisplayOptions();
+    }
+
+    public void TogglePlural()
+    {
+        if (currentTense == 1)
+        {
+            currentTense = 0;
         }
         else
         {
@@ -337,10 +385,10 @@ public class PredictiveChoicesController : MonoBehaviour
             wordText = tenses[word.Contents.ToLower()][currentTense];
         }
 
-        //if (word.Type == WordType.Verb)
-        //{
-        //    wordText = tenses[word.Contents.ToLower()][currentTense];
-        //}
+        if (word.Type == WordType.Noun)
+        {
+            wordText = tenses[word.Contents.ToLower()][plurals];
+        }
 
         switch (capsOption)
         {
