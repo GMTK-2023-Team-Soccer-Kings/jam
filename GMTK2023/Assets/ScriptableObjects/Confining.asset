@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Confining
   m_EditorClassIdentifier: 
   ParodyGameName: The Confining of Ivan
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 88771fa57f07f35409477e3a1110d5af, type: 3}

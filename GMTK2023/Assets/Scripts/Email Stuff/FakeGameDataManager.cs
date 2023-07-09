@@ -53,34 +53,16 @@ public class FakeGameDataManager : MonoBehaviour
                 const int TAG_COUNT = 3;
                 for (int i = TAG_START; i < TAG_START + TAG_COUNT; i++)
                 {
-                    tag |= _stringToTag[row[i]];
+                    tag |= TagData.StringToTag[row[i]];
                 }
 
                 GameImage image = _gameImagesByName[title];
                 string description = row[5];
 
-                _gameData.Add(new FakeGameData(title, description, tag, image));
+                _gameData.Add(new FakeGameData(title, description, tag, image, row[6], row[7]));
 
             }
         }
     }
 
-
-    Dictionary<string, Tag> _stringToTag = new Dictionary<string, Tag>()
-    {
-        { "none",        Tag.None         },
-        { "adv",   Tag.Adventure    },
-        { "stry",   Tag.StoryRich    },
-        { "hrd",        Tag.Difficult    },
-        { "jump",       Tag.Platformer   },
-        { "hrr",      Tag.Horror       },
-        { "chrm",     Tag.Charming     },
-        { "gore",     Tag.Gore         },
-        { "rl",      Tag.Roguelike    },
-        { "pzl",      Tag.Puzzle       },
-        { "sim",   Tag.Simulator    },
-        { "srv",    Tag.Survival     },
-        { "cg",    Tag.CardGame     },
-        { "rpg",         Tag.RPG          },
-    };
 }

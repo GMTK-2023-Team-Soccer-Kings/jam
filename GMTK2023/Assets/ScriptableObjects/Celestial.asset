@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Celestial
   m_EditorClassIdentifier: 
   ParodyGameName: Celestial
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: f73b71d995495b84094279e19c5e215c, type: 3}

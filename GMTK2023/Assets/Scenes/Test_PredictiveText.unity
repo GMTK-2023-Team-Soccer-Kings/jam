@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 982108189}
   - component: {fileID: 982108188}
   - component: {fileID: 982108190}
+  - component: {fileID: 982108191}
   m_Layer: 0
   m_Name: PredictiveText
   m_TagString: Untagged
@@ -795,6 +796,23 @@ MonoBehaviour:
   - {fileID: 1258947367}
   _sentenceStructuresFile: {fileID: 4900000, guid: a275b99f41343f842846dd7901c4e488, type: 3}
   _outputBox: {fileID: 1757885030}
+  _keywordToggle: {fileID: 0}
+  _postButton: {fileID: 0}
+--- !u!114 &982108191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982108187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460429ceef62fd944afe1fec85523844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _replies: {fileID: 4900000, guid: c189dfc4c2f2ec3409c565100cf2c492, type: 3}
+  testTag: 2178
+  testScore: 2
 --- !u!1 &1220452201
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mumu
   m_EditorClassIdentifier: 
   ParodyGameName: Mumu are You?
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: b0a6dd6f0079c684784f76d79be973c3, type: 3}
