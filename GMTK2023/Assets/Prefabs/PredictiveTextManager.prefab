@@ -1898,6 +1898,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: caps
       objectReference: {fileID: 0}
+    - target: {fileID: 6838720976472748275, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838720976472748275, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a395db4054e10b498e660cf2c967194, type: 3}
     - target: {fileID: 7184428519008651639, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
