@@ -134,6 +134,8 @@ public class PredictiveChoicesController : MonoBehaviour
 
         _brbllCreator.AddUserBrbll(_outputBox.text, score, _gameData);
 
+        _completedBrrbl.Clear();
+
         _outputBox.text = "";
         _gameData = null;
     }
