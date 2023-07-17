@@ -56,7 +56,15 @@ public class PredictiveText : MonoBehaviour
 
                 }
 
-                Word word = new Word(row[0].ToLower(), type, tag);
+                string contents = row[0].ToLower();
+                if (tag.Equals(Tag.Emoticon))
+                {
+                    contents = row[0]; // dont lowercase;
+                }
+
+
+                Word word = new Word(contents, type, tag);
+                
 
                 if (tag.Equals(Tag.None))
                 {
@@ -126,16 +134,20 @@ public class PredictiveText : MonoBehaviour
             }
 
             Word[] tempOptions = new Word[OPTIONS_COUNT]; //preshuffle
+
+
             Tag tag = Tag.Adventure;
 
             for (int i = 0; i < _allTags.Length; i++)
             {
-                if (reqTag.HasFlag(_allTags[i]))
-                {
-                    tag = _allTags[i];
+                int randomTagIndex = Random.Range(0, _allTags.Length - i);
+                tag = _allTags[randomTagIndex];
 
-                    if (Random.Range(0, 2) > 0) break; //bad randomness but whatever its a jam
-                }
+                if (reqTag.HasFlag(tag)) break;
+
+                //swap random to end of list
+                _allTags[randomTagIndex] = _allTags[_allTags.Length - 1 - i];
+                _allTags[_allTags.Length - 1 - i] = tag;
             }
 
             List<Word> taggedWords = _wordsByType[type][tag];
@@ -143,13 +155,15 @@ public class PredictiveText : MonoBehaviour
 
             tempOptions[0] = taggedWords[index];
 
-            for (int i = 1; i < OPTIONS_COUNT; i++)
-            {
-                Tag randomTag = _allTags[Random.Range(0, _allTags.Length-1)];
-                index = Random.Range(0, _wordsByType[type][randomTag].Count);
+            do {
+                for (int i = 1; i < OPTIONS_COUNT; i++)
+                {
+                    Tag randomTag = _allTags[Random.Range(0, _allTags.Length)];
+                    index = Random.Range(0, _wordsByType[type][randomTag].Count);
 
-                tempOptions[i] = _wordsByType[type][randomTag][index];
-            }
+                    tempOptions[i] = _wordsByType[type][randomTag][index];
+                }
+            } while (!AreEntriesUnique(tempOptions));
 
             int[] indices = new int[OPTIONS_COUNT];
             for (int i = 0; i < OPTIONS_COUNT; i++)
@@ -173,6 +187,22 @@ public class PredictiveText : MonoBehaviour
         return options;
     }
 
+
+    bool AreEntriesUnique(Word[] words)
+    {
+        bool unique = true;
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            for (int j = i - 1; j >= 0; j--)
+            {
+                unique = unique && (words[i].Contents.ToLower() != words[j].Contents.ToLower());
+            }
+        }
+
+        return unique;
+    }
+
     Tag[] _allTags = new Tag[]
     {
         Tag.Adventure,
@@ -187,7 +217,6 @@ public class PredictiveText : MonoBehaviour
         Tag.Simulator,
         Tag.Survival,
         Tag.CardGame,
-        Tag.RPG,
-        Tag.Emoticon
+        Tag.RPG
     };
 }

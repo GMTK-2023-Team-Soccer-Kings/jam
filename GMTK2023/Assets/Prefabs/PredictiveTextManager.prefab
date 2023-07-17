@@ -522,6 +522,7 @@ MonoBehaviour:
   _sentenceStructuresFile: {fileID: 4900000, guid: a275b99f41343f842846dd7901c4e488, type: 3}
   _verbTensesFile: {fileID: 4900000, guid: 9e1478cf279df64438cd8b1a3c8abe82, type: 3}
   _pluralsFile: {fileID: 4900000, guid: 0e73cdf5a7056274bafbfe1507944a35, type: 3}
+  _capsButton: {fileID: 5827356366761870793}
   _tenseButton: {fileID: 5304140831123593144}
   _pluralButton: {fileID: 8030275235886369658}
   _outputBox: {fileID: 4990568774702882195}
@@ -2280,6 +2281,11 @@ PrefabInstance:
 --- !u!224 &3523376216325837163 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2658137803847456862, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
+  m_PrefabInstance: {fileID: 1442865192646215989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5827356366761870793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4960991526085184764, guid: 61cdbeaa02103a542bc957c27c2ab32d, type: 3}
   m_PrefabInstance: {fileID: 1442865192646215989}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3146256121217959814

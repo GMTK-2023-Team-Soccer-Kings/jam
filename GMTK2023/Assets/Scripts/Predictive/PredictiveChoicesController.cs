@@ -19,6 +19,7 @@ public class PredictiveChoicesController : MonoBehaviour
     [SerializeField] TextAsset _verbTensesFile;
     [SerializeField] TextAsset _pluralsFile;
 
+    [SerializeField] GameObject _capsButton;
     [SerializeField] GameObject _tenseButton;
     [SerializeField] GameObject _pluralButton;
 
@@ -190,6 +191,7 @@ public class PredictiveChoicesController : MonoBehaviour
                 _outputBox.text += " ";
             }
 
+            _capsButton.SetActive(_currentWordType != WordType.Punctuation);
             _tenseButton.SetActive(_currentWordType == WordType.Verb);
             _pluralButton.SetActive(_currentWordType == WordType.Noun);
 
@@ -232,10 +234,10 @@ public class PredictiveChoicesController : MonoBehaviour
 
         if (wordType == WordType.Punctuation)
         {
-            int randEmoticon = Random.Range(0, 7);
-            if (randEmoticon == 6)
+            int randEmoticon = Random.Range(0, 5);
+            if (randEmoticon == 4)
             {
-              _generatedNormalWords = _predictive.GetOptionsFor(wordType, Tag.Emoticon);
+                _generatedNormalWords = _predictive.GetOptionsFor(wordType, Tag.Emoticon);
             }
         }
     }
@@ -371,10 +373,7 @@ public class PredictiveChoicesController : MonoBehaviour
 
         int i = 0;
         foreach (Word word in wordOptions)
-        {
-
-
-
+        { 
             _choices[i].text = GetCorrectedWord(word);
             i++;
         }
@@ -383,6 +382,8 @@ public class PredictiveChoicesController : MonoBehaviour
     private string GetCorrectedWord(Word word)
     {
         string wordText = word.Contents;
+
+        if (word.Tag == Tag.Emoticon) return wordText;
 
         if (word.Type == WordType.Verb)
         {
